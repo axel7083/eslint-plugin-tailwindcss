@@ -68,8 +68,8 @@ export const toCssVariableShorthand = (
 
 const bracketedCssVariables = (
   context: RuleContext,
-  _settings: PluginSettings,
-  _options: RuleOptions,
+  settings: PluginSettings,
+  options: RuleOptions,
   literals: Array<AtomicNode>,
 ) => {
   const genericContext = context as unknown as GenericRuleContext;
@@ -85,8 +85,10 @@ const bracketedCssVariables = (
       ignoreLast,
     } = dissectAtomicNode(node, genericContext);
 
-    // Early escape if the value is falsy
-    if (!originalClassNamesValue) continue;
+    // Early escape if the value is falsy or doesn't contain "--"
+    if (!originalClassNamesValue || !originalClassNamesValue.includes("--")) {
+      continue;
+    }
 
     const { classNames, whitespaces, headSpace, tailSpace } =
       getClassnamesFromValue(originalClassNamesValue);

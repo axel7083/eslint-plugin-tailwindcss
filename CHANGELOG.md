@@ -1,11 +1,5 @@
 # Changelog
 
-## Unreleased
-
-### 🚀 Features
-
-- feat(rule): add [`enforces-css-variable-shorthand`](./docs/rules/enforces-css-variable-shorthand.md), autofixes `border-[--pattern-fg]` to `border-(--pattern-fg)` ([#304](https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/304))
-
 ## `v4.4.0`
 
 ### 🚀 Features
